@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import DebounceInput from "./components/DebounceInput";
+
 import styled from "styled-components";
 
 const WrapContainer = styled.div`
@@ -30,24 +32,17 @@ const Content = styled.div`
 
 function App() {
   const [value, setValue] = useState('')
-  const inputRef = useRef<HTMLInputElement | any>(null)
-
-  let debouceTimer: number;
-
-  const debounce = (value: string, waittime = 1500) => {
-    clearTimeout(debouceTimer)
-
-    debouceTimer = setTimeout(() => {
-      setValue(value)
-    }, waittime)
-  }
 
   return (
     <WrapContainer>
       <Container>
         <HorizontalContainer>
           <h1>Debounce</h1>
-          <input type="text" name="input" ref={inputRef} maxLength={255} onChange={() => debounce(inputRef.current?.value)} />
+          <DebounceInput props={{
+            value,
+            setValue,
+            debounceTimer: 1000
+          }} />
           <Content>
             <h4>{value}</h4>
           </Content>
