@@ -6,7 +6,7 @@ export const WrapContainer = styled.div`
   align-items: center;
   gap: 1rem;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
 `
 export const Container = styled.div`
   background-color: #EEEEEE;
