@@ -9,7 +9,6 @@ interface Props {
 }
 
 function DebounceInput({ props }: Props) {
-
     let debouceTimer: number;
 
     const { setValue, debounceTimer } = props;
